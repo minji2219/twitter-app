@@ -30,6 +30,17 @@ body {
   border-right: 1px solid $border;
   min-height: 100vh;
 }
+.transparent {
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+}
+.sticky {
+  width: 100%;
+  position: sticky;
+  max-width: 600px;
+  margin: 0 auto;
+  top: 0;
+}
 .footer {
   position: fixed;
   right: 0;
@@ -74,17 +85,27 @@ body {
 
 //home 레이아웃
 .home {
+  &__top {
+    @extend .transparent;
+    @extend .sticky;
+  }
   &__title {
+    background-color: transparent;
+    width: 100%;
     padding: 16px;
     font-weight: 700;
     font-size: 20px;
   }
   &__tabs {
+    background-color: transparent;
+    width: 100%;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   &__tab {
+    background-color: transparent;
+    width: 100%;
     text-align: center;
     font-weight: 500;
     padding: 16px;
@@ -141,6 +162,27 @@ body {
   }
 }
 .post {
+  &__header {
+    button {
+      border: none;
+      padding: 16px;
+    }
+    &-btn {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+  }
+
+  &__no-posts {
+    padding: 16px;
+    .post__text {
+      font-size: 14px;
+      border: 1px solid $gray;
+      padding: 16px;
+      border-radius: 4px;
+    }
+  }
   padding-bottom: 40px;
   &__flex {
     display: flex;
