@@ -15,6 +15,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
     !!auth?.currentUser
   );
+
   //auth에 obserber를 넣어서 계정이 변동이 되었는지 새로고침 안해도 확인 가능하게 하는 것
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -28,7 +29,12 @@ function App() {
   }, [auth]);
   return (
     <Layout>
-      <ToastContainer />
+      <ToastContainer
+        theme="dark"
+        autoClose={1000}
+        hideProgressBar
+        newestOnTop
+      />
       {init ? <Router isAuthenticated={isAuthenticated} /> : <Loader />}
     </Layout>
   );
